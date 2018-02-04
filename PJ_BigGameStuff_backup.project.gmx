@@ -86,6 +86,7 @@
     <background>background\bgClouds</background>
     <background>background\bgClouds2</background>
     <background>background\tiles0</background>
+    <background>background\bgForest</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -144,9 +145,12 @@
     <object>objects\oCrateSmall</object>
     <object>objects\oCoin</object>
     <object>objects\oCratePoof</object>
+    <object>objects\oCamera</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmTest</room>
+    <room>rooms\rmTest1</room>
+    <room>rooms\room2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

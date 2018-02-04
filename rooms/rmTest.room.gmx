@@ -3,8 +3,8 @@
   <caption></caption>
   <width>640</width>
   <height>360</height>
-  <vsnap>32</vsnap>
-  <hsnap>32</hsnap>
+  <vsnap>16</vsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>30</speed>
   <persistent>0</persistent>
@@ -41,7 +41,7 @@
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
   </backgrounds>
   <views>
-    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="-1" objName="oCamera" xview="0" yview="0" wview="640" hview="360" xport="0" yport="0" wport="1280" hport="720" hborder="320" vborder="180" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
@@ -222,8 +222,9 @@
     <instance objName="oEnemyTest" x="288" y="192" name="inst_B1F5CD7D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
-    <tile bgName="tiles0" x="440" y="296" w="8" h="8" xo="16" yo="56" id="10000274" name="inst_FD817065" depth="6" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tiles0" x="144" y="240" w="8" h="8" xo="8" yo="0" id="10000275" name="inst_6B8AD975" depth="6" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tiles0" x="368" y="192" w="8" h="8" xo="0" yo="0" id="10000348" name="inst_3AA315E6" depth="6" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tiles0" x="368" y="208" w="8" h="8" xo="0" yo="0" id="10000349" name="inst_E3CC9548" depth="6" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tiles0" x="320" y="224" w="8" h="8" xo="64" yo="0" id="10000069" name="inst_A994547C" depth="5" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tiles0" x="328" y="224" w="8" h="8" xo="72" yo="0" id="10000070" name="inst_B067379C" depth="5" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tiles0" x="336" y="224" w="8" h="8" xo="72" yo="0" id="10000071" name="inst_D56192D9" depth="5" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -289,6 +290,8 @@
     <tile bgName="tiles0" x="440" y="288" w="16" h="8" xo="16" yo="120" id="10000271" name="inst_26DFB056" depth="5" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tiles0" x="448" y="296" w="8" h="8" xo="32" yo="136" id="10000272" name="inst_643C687D" depth="5" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tiles0" x="128" y="296" w="16" h="8" xo="8" yo="80" id="10000292" name="inst_BC5FC1B2" depth="5" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tiles0" x="400" y="192" w="8" h="8" xo="0" yo="0" id="10000354" name="inst_35E3793A" depth="5" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tiles0" x="368" y="192" w="8" h="8" xo="16" yo="16" id="10000359" name="inst_150D5597" depth="5" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tiles0" x="368" y="288" w="16" h="8" xo="64" yo="8" id="10000001" name="inst_0CFDBE53" depth="-5" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tiles0" x="384" y="296" w="16" h="8" xo="64" yo="8" id="10000002" name="inst_7871B204" depth="-5" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tiles0" x="368" y="296" w="8" h="8" xo="16" yo="16" id="10000006" name="inst_24F85365" depth="-5" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
