@@ -95,6 +95,7 @@
     <script>scripts\DrawSpriteSkewExt.gml</script>
     <script>scripts\OnGround.gml</script>
     <script>scripts\PlaceMeetingException.gml</script>
+    <script>scripts\ChangeGameMode.gml</script>
     <script>scripts\PlatformCheck.gml</script>
     <script>scripts\EntityStep.gml</script>
     <script>scripts\GrassCut.gml</script>
@@ -148,9 +149,11 @@
     <object>objects\oCamera</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rmTest</room>
-    <room>rooms\rmTest1</room>
-    <room>rooms\room2</room>
+    <rooms name="Test">
+      <room>rooms\rmTest</room>
+      <room>rooms\rmTest1</room>
+      <room>rooms\rmBattleTest</room>
+    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

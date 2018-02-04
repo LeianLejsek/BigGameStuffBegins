@@ -76,7 +76,14 @@ with (oParCrate) {
 with (oParEnemy) {
     // Damage enemy
     if (!(bbox_left &gt; other.bboxright || bbox_right &lt; other.bboxleft || bbox_top &gt; other.bboxbottom || bbox_bottom &lt; other.bboxtop)) {
-        instance_destroy();
+        with(oGame) {
+            GameMode = BATTLE;
+            FirstEnemy = other.id;
+            initializing = true;
+            
+            view_wview[0] = 288;
+            view_hview[0] = 162;
+        }
     }
 }
 </string>
