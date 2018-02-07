@@ -283,23 +283,39 @@ if (onGround &amp;&amp; !onGroundPrev) {
             <kind>1</kind>
             <string>/// Movement
 
+
+
 // Input //////////////////////////////////////////////////////////////////////
 
 var kLeft, kRight, kUp, kDown, kJump, kJumpRelease, kAction, kBlock, kRollL, kRollR, tempAccel, tempFric;
 
-kLeft        = keyboard_check(ord("A"))  || gamepad_axis_value(0, gp_axislh) &lt; -0.4;
-kRight       = keyboard_check(ord("D")) || gamepad_axis_value(0, gp_axislh) &gt;  0.4;
-kUp          = keyboard_check(ord("W"))    || gamepad_axis_value(0, gp_axislv) &lt; -0.4;
-kDown        = keyboard_check(ord("S"))  || gamepad_axis_value(0, gp_axislv) &gt;  0.4;
-
-kJump        = keyboard_check_pressed(vk_space)  || gamepad_button_check_pressed(0, gp_face1);
-kJumpRelease = keyboard_check_released(vk_space) || gamepad_button_check_released(0, gp_face1);
-
-kAction      = keyboard_check_pressed(ord('Q'))  || gamepad_button_check_pressed(0, gp_face3);
-kBlock       = keyboard_check(ord('E'))          || gamepad_button_check(0, gp_face2);
-kRollL       = (keyboard_check_pressed(ord('A')) &amp;&amp; keyboard_check_pressed(vk_shift))|| gamepad_button_check_pressed(0, gp_shoulderlb);
-kRollR       = (keyboard_check_pressed(ord('D')) &amp;&amp; keyboard_check_pressed(vk_shift))|| gamepad_button_check_pressed(0, gp_shoulderrb);
-
+if( oGame.GameMode != oGame.BATTLE ) { 
+    kLeft        = keyboard_check(ord("A"))  || gamepad_axis_value(0, gp_axislh) &lt; -0.4;
+    kRight       = keyboard_check(ord("D")) || gamepad_axis_value(0, gp_axislh) &gt;  0.4;
+    kUp          = keyboard_check(ord("W"))    || gamepad_axis_value(0, gp_axislv) &lt; -0.4;
+    kDown        = keyboard_check(ord("S"))  || gamepad_axis_value(0, gp_axislv) &gt;  0.4;
+    
+    kJump        = keyboard_check_pressed(vk_space)  || gamepad_button_check_pressed(0, gp_face1);
+    kJumpRelease = keyboard_check_released(vk_space) || gamepad_button_check_released(0, gp_face1);
+    
+    kAction      = keyboard_check_pressed(ord('Q'))  || gamepad_button_check_pressed(0, gp_face3);
+    kBlock       = keyboard_check(ord('E'))          || gamepad_button_check(0, gp_face2);
+    kRollL       = (keyboard_check_pressed(ord('A')) &amp;&amp; keyboard_check_pressed(vk_shift))|| gamepad_button_check_pressed(0, gp_shoulderlb);
+    kRollR       = (keyboard_check_pressed(ord('D')) &amp;&amp; keyboard_check_pressed(vk_shift))|| gamepad_button_check_pressed(0, gp_shoulderrb);
+} else {
+    kLeft        = 0;
+    kRight       = 0;
+    kUp          = 0;
+    kDown        = 0;
+    
+    kJump        = 0;
+    kJumpRelease = 0;
+    
+    kAction      = 0;
+    kBlock       = 0;
+    kRollL       = 0;
+    kRollR       = 0;
+}
 if (instance_exists(oTouchCompatible)) {
     // Disable double-click (increases input accuracy)
     device_mouse_dbclick_enable(false);
@@ -614,8 +630,10 @@ yscale = Approach(yscale, 1, 0.05);
           <argument>
             <kind>1</kind>
             <string>///Initialize Battle
-if ( oGame.InitializingBattle ) {
-    
+if( oGame.GameMode == oGame.BATTLE ) {
+    if( oGame.BattleState == oGame.INITIATE ){
+        oGame.PlayerReady = BattleTakePos();
+    }
 }
 </string>
           </argument>
@@ -732,12 +750,7 @@ if (onGround)
     draw_sprite_ext(sprite_index, image_index, x, y + (16 - 16 * yscale) * 0.25, facing * xscale, yscale, 0, c_white, image_alpha);    
 else
     draw_sprite_ext(sprite_index, image_index, x, y, facing * xscale, yscale, 0, c_white, image_alpha);
-    
-// 
-if(oGame.GameMode = oGame.BATTLE){
-    draw_sprite( sEnemyTest1, 0, BattleRestPos, y);
-}
-//
+
 </string>
           </argument>
         </arguments>

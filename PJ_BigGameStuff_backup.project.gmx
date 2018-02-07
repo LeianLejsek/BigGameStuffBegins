@@ -82,6 +82,7 @@
     <sprite>sprites\sCoin</sprite>
     <sprite>sprites\sCratePoof</sprite>
     <sprite>sprites\sGame</sprite>
+    <sprite>sprites\sEnemyTest2</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg0</background>
@@ -102,6 +103,9 @@
     <script>scripts\EntityStep.gml</script>
     <script>scripts\GrassCut.gml</script>
     <script>scripts\ChangeView.gml</script>
+    <script>scripts\InitiateBattle.gml</script>
+    <script>scripts\EndBattle.gml</script>
+    <script>scripts\BattleTakePos.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\oGame</object>
@@ -154,8 +158,8 @@
   <rooms name="rooms">
     <room>rooms\rmInitiate</room>
     <rooms name="Test">
-      <room>rooms\rmTest</room>
       <room>rooms\rmTest1</room>
+      <room>rooms\rmTest</room>
       <room>rooms\rmBattleTest</room>
     </rooms>
   </rooms>

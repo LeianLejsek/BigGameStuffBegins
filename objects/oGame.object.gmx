@@ -26,12 +26,16 @@
           <argument>
             <kind>1</kind>
             <string>///Stablish Game mode
-PLATFORMER = 10;
-BATTLE = 11;
+PLATFORMER = 7;
+BATTLE = 8;
 
-GameMode = 10;
+TURNATTACKP = 9;
+TURNATTACKE = 10;
+TURNREST = 12;
+INITIATE = 13;
 
-InitializingBattle = false;
+GameMode = PLATFORMER;
+BattleState = noone;
 
 BattleAreaR = noone;
 BattleAreaL = noone;
@@ -40,6 +44,10 @@ BattleAreaW = noone;
 BattleAreaT = noone;
 BattleAreaB = noone;
 BattleAreaH = noone;
+
+InitializingBattle = false;
+PlayerReady = false;
+EnemyReady = false;
 
 FirstEnemy = noone;
 Enemies[0] = noone;
@@ -133,10 +141,7 @@ if (kExit)
     game_end();
     
 if (kLeaveBattle &amp;&amp; GameMode == BATTLE) {
-    GameMode = PLATFORMER;
-    with(camera){
-        ChangeView(ViewPlatform);
-    }
+    EndBattle();
 }
     
 // Iterate through rooms backward
@@ -208,6 +213,31 @@ switch( GameMode ){
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Initialize battle
+
+if( PlayerReady &amp;&amp; EnemyReady ){
+    BattleState = TURNREST;    
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="64">
       <action>
@@ -236,8 +266,27 @@ switch GameMode {
     break;
 }
 
-draw_set_colour(c_gray);
-draw_text( 0, 0, "Game mode:" + CurrentMode );
+switch BattleState {
+    case INITIATE:
+        CurrentBState = "Initiating";
+    break;
+    case TURNREST:
+        CurrentBState = "Turn Rest";
+    break;
+    case TURNATTACKP:
+        CurrentBState = "Turn Attack Player";
+    break;
+    case TURNATTACKE:
+        CurrentBState = "Turn Attack Enemy";
+    break;
+    default:
+        CurrentBState = "Noone";
+    break;
+}
+
+
+draw_set_colour(c_white);
+draw_text( 0, 0, "Game mode: " + CurrentMode + "#Battle state: " + CurrentBState );
 
 </string>
           </argument>

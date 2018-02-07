@@ -77,22 +77,11 @@ with (oParEnemy) {
     // Damage enemy
     if (!(bbox_left &gt; other.bboxright || bbox_right &lt; other.bboxleft || bbox_top &gt; other.bboxbottom || bbox_bottom &lt; other.bboxtop)) {
         with(oGame) {
-            GameMode = BATTLE;
-            FirstEnemy = other.id; //Make first item in an enemy list later.
-            InitializingBattle = true;
-            
-            BattleSeparation = 3/5 * camera.ViewBattleW; //Separation from each other between player and enemies in battle
-            BattleRestSideP = sign( oPlayer.x - FirstEnemy.x );
-            BattleRestSideE = - BattleRestSideP;
-            with(camera){
-                ChangeView(ViewBattle);
-            }
-            with(oPlayer) {
-                BattleRestPos = x + other.BattleRestSideP * other.BattleSeparation/2;    
-            }
+            InitiateBattle();        
         }
     }
 }
+
 </string>
           </argument>
         </arguments>

@@ -29,6 +29,8 @@
 
 vyMax = 10.0;
 gravNorm = .5;
+
+InBattle = false;
 </string>
           </argument>
         </arguments>
@@ -51,11 +53,67 @@ gravNorm = .5;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//handle gravtity
+            <string>///Apply gravtity
 if (!onGround) {
         vy = Approach(vy, vyMax, gravNorm);
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Initiate battle
+if( oGame.GameMode == oGame.BATTLE ) {
+    if( oGame.BattleState == oGame.INITIATE &amp;&amp; InBattle = true ) {
+        oGame.EnemyReady = BattleTakePos();
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+/*
+//
+if( oGame.GameMode == oGame.BATTLE &amp;&amp; oGame.FirstEnemy == id ){
+    draw_sprite( sEnemyTest2, 0, BattleRestPos, y );
+}
+//
+*/
 </string>
           </argument>
         </arguments>
