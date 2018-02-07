@@ -80,6 +80,7 @@
     <sprite>sprites\sCrateSmall</sprite>
     <sprite>sprites\sCoin</sprite>
     <sprite>sprites\sCratePoof</sprite>
+    <sprite>sprites\sGame</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg0</background>
@@ -99,6 +100,7 @@
     <script>scripts\PlatformCheck.gml</script>
     <script>scripts\EntityStep.gml</script>
     <script>scripts\GrassCut.gml</script>
+    <script>scripts\ChangeView.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\oGame</object>
@@ -149,6 +151,7 @@
     <object>objects\oCamera</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rmInitiate</room>
     <rooms name="Test">
       <room>rooms\rmTest</room>
       <room>rooms\rmTest1</room>

@@ -78,11 +78,11 @@ with (oParEnemy) {
     if (!(bbox_left &gt; other.bboxright || bbox_right &lt; other.bboxleft || bbox_top &gt; other.bboxbottom || bbox_bottom &lt; other.bboxtop)) {
         with(oGame) {
             GameMode = BATTLE;
-            FirstEnemy = other.id;
-            initializing = true;
-            
-            view_wview[0] = 288;
-            view_hview[0] = 162;
+            FirstEnemy = other.id; //Make first item in an enemy list later.
+            //InitializingBattle = true;
+            with(camera){
+                ChangeView(ViewBattle);
+            }
         }
     }
 }
