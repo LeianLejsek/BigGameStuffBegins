@@ -25,6 +25,44 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Stablish Game mode
+PLATFORMER = 10;
+BATTLE = 11;
+
+GameMode = 10;
+
+InitializingBattle = false;
+
+BattleAreaR = noone;
+BattleAreaL = noone;
+BattleAreaW = noone;
+
+BattleAreaT = noone;
+BattleAreaB = noone;
+BattleAreaH = noone;
+
+FirstEnemy = noone;
+Enemies[0] = noone;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Camera
 camera = instance_create(x, y, oCamera);
 
@@ -55,44 +93,6 @@ with(camera){
     
     view_visible[ViewPlatform] = true;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Stablish Game mode
-PLATFORMER = 10;
-BATTLE = 11;
-
-GameMode = 10;
-
-IniitalizingBattle = false;
-
-BattleAreaR = noone;
-BattleAreaL = noone;
-BattleAreaW = noone;
-
-BattleAreaT = noone;
-BattleAreaB = noone;
-BattleAreaH = noone;
-
-FirstEnemy = noone;
-Enemies[0] = noone;
 </string>
           </argument>
         </arguments>

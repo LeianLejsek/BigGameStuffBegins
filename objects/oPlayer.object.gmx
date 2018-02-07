@@ -543,30 +543,6 @@ blocking = kBlock;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Squash + stretch
-
-xscale = Approach(xscale, 1, 0.05);
-yscale = Approach(yscale, 1, 0.05);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>/// Hitbox
 
 with (oPlayerAtkBox)
@@ -592,6 +568,54 @@ if (sprite_index == sPlayerJab &amp;&amp; round(image_index) &gt; 0) {
         bboxtop    = other.y - 1;
         bboxbottom = other.y + 8; 
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Squash + stretch
+
+xscale = Approach(xscale, 1, 0.05);
+yscale = Approach(yscale, 1, 0.05);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Initialize Battle
+if ( oGame.InitializingBattle ) {
+    
 }
 </string>
           </argument>
@@ -708,6 +732,12 @@ if (onGround)
     draw_sprite_ext(sprite_index, image_index, x, y + (16 - 16 * yscale) * 0.25, facing * xscale, yscale, 0, c_white, image_alpha);    
 else
     draw_sprite_ext(sprite_index, image_index, x, y, facing * xscale, yscale, 0, c_white, image_alpha);
+    
+// 
+if(oGame.GameMode = oGame.BATTLE){
+    draw_sprite( sEnemyTest1, 0, BattleRestPos, y);
+}
+//
 </string>
           </argument>
         </arguments>

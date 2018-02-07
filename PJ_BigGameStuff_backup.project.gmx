@@ -33,6 +33,7 @@
       <sprite>sprites\sPlayerParticle</sprite>
     </sprites>
     <sprites name="Enemy">
+      <sprite>sprites\sEnemyTest1</sprite>
       <sprite>sprites\sEnemyTest</sprite>
     </sprites>
     <sprites name="Terrain">

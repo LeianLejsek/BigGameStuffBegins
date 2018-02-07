@@ -79,9 +79,16 @@ with (oParEnemy) {
         with(oGame) {
             GameMode = BATTLE;
             FirstEnemy = other.id; //Make first item in an enemy list later.
-            //InitializingBattle = true;
+            InitializingBattle = true;
+            
+            BattleSeparation = 3/5 * camera.ViewBattleW; //Separation from each other between player and enemies in battle
+            BattleRestSideP = sign( oPlayer.x - FirstEnemy.x );
+            BattleRestSideE = - BattleRestSideP;
             with(camera){
                 ChangeView(ViewBattle);
+            }
+            with(oPlayer) {
+                BattleRestPos = x + other.BattleRestSideP * other.BattleSeparation/2;    
             }
         }
     }
