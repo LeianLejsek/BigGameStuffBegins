@@ -232,7 +232,9 @@ switch( GameMode ){
             <string>///Initialize battle
 
 if( PlayerReady &amp;&amp; EnemyReady ){
-    BattleState = TURNREST;    
+    BattleState = TURNREST;
+    PlayerReady = false;    
+    EnemyReady = false;
 }
 </string>
           </argument>

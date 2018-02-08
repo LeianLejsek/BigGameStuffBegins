@@ -1,6 +1,9 @@
 ///Initialize Battle
 if ( oGame.BattleState == oGame.INITIATE ) {
-    x = Approach(x, BattleRestPos, 4);
+    var Amplitude = 9;
+    var DisConstant = (2*pi) / (270 * 2/3);
+    var MinVelocity = 1.5;
+    x = Approach(x, BattleRestPos, abs( Amplitude*sin(  DisConstant * (BattleRestPos-x) ) ) + MinVelocity );
     if( x == BattleRestPos ) {
         return true;
     }
