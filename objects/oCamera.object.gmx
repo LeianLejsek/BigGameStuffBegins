@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>        prevx = x;
-        prevy = y;
-switch(CurrentView){
+            <string>switch(CurrentView){
     case ViewPlatformer:
         if( Transition ) {
             var cEase = EaseInOut(TransitionExpnt, TransitionTime, t);  
