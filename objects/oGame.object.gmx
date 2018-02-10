@@ -90,11 +90,13 @@ with(camera){
     
     DeltaPlatformerBattleW = ViewPlatformerW - ViewBattleW;
     DeltaPlatformerBattleH = ViewPlatformerH - ViewBattleH;
-    TransitionTime = .5;                                                //in seconds
-    TransitionExpnt = 2;
+    TransitionTime = .4;                                                //in seconds
+    TransitionExpnt = 1.75;
     Transition = false;
     t = 0;
-
+    
+    CameraFollowMinVel = .5;
+    
     view_wview[Overworld] = ViewPlatformerW;
     view_hview[Overworld] = ViewPlatformerH;
     view_hborder[Overworld] = ViewPlatformerW/2;

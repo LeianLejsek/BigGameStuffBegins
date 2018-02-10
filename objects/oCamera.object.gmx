@@ -8,35 +8,6 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>FollowBattleAreaMinVel = .5;
-
-for( i = 0; i &lt; 90; i++ ){
-    scale[i] = 0;
-}
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -68,15 +39,23 @@ switch(CurrentView){
             
             t++;
             
+            //Camera smooth movement
+            var Objectivex, Objectivey, CamereaFollowVel, DistanceToObjective;
             
+            Objectivex = oPlayer.x;
+            Objectivey = oPlayer.y;
+            
+            DistanceToObjective = distance_to_point( Objectivex, Objectivey );     
+        
+            CameraFollowVel = CameraFollowMinVel + CameraFollowAddSpeed(DistanceToObjective);
+            
+            x = Approach(x, Objectivex, sin(pi/4) * CameraFollowVel);
+            y = Approach(y, Objectivey, sin(pi/4) * CameraFollowVel);
+        
+        } else {
+            x = oPlayer.x;
+            y = oPlayer.y;
         }
-        
-        x = oPlayer.x;
-        y = oPlayer.y;
-        
-        view_xview[Overworld] = x - view_wview[Overworld]/2;
-        view_yview[Overworld] = y - view_hview[Overworld]/2;        
-        
     break;
     case ViewBattle:
         if( Transition ) {
@@ -88,31 +67,28 @@ switch(CurrentView){
             if( view_wview[Overworld] == ViewBattleW ) Transition = false;
             
             t++;
-            
-            
         }
         
-        var BattleAreCenterx, BattleAreaCentery, FollowBattleAreaVel, FollowBattleAreaVelOffset, DistanceToCenter;
+        //Camera smooth movement
+        var Objectivex, Objectivey, CamereaFollowVel, DistanceToObjective;
 
-        BattleAreaCenterx = oGame.BattleAreaL + oGame.BattleAreaW/2;
-        BattleAreaCentery = oGame.BattleAreaT + oGame.BattleAreaH/2;
-        DistanceToCenter = distance_to_point( BattleAreaCenterx, BattleAreaCentery );
+        Objectivex = oGame.BattleAreaL + oGame.BattleAreaW/2;
+        Objectivey = oGame.BattleAreaT + oGame.BattleAreaH/2;
         
-        FollowBattleAreaVelOffset = ( 9 * ( 2*DistanceToCenter + 9 ) ^ (7/2) ) / (3.2*10^4) ;     //Finely tuned function. DO NOT TOUCH UNLESS RESOLUTION CHANGE.  
+        DistanceToObjective = distance_to_point( Objectivex, Objectivey );     
         
-        FollowBattleAreaVel = FollowBattleAreaMinVel + FollowBattleAreaVelOffset;
+        CameraFollowVel = CameraFollowMinVel + CameraFollowAddSpeed(DistanceToObjective);
         
-        x = Approach(x, BattleAreaCenterx, sin(pi/4) * FollowBattleAreaVel);
-        y = Approach(y, BattleAreaCentery, sin(pi/4) * FollowBattleAreaVel);
-    
-        view_xview[Overworld] = x - view_wview[Overworld]/2;
-        view_yview[Overworld] = y - view_hview[Overworld]/2;
-        
+        x = Approach(x, Objectivex, sin(pi/4) * CameraFollowVel);
+        y = Approach(y, Objectivey, sin(pi/4) * CameraFollowVel);
+       
     break;
     default:
     break;    
 }
 
+view_xview[Overworld] = x - view_wview[Overworld]/2;
+view_yview[Overworld] = y - view_hview[Overworld]/2;
 
 </string>
           </argument>
@@ -158,11 +134,7 @@ switch(CurrentView){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-
-
-
-//d3d_transform_set_translation( prevx-x, prevy-y, 0 );
+            <string>//draw_self();
 </string>
           </argument>
         </arguments>
