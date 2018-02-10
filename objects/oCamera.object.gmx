@@ -27,6 +27,10 @@
             <kind>1</kind>
             <string>FollowBattleAreaMinVel = .5;
 
+for( i = 0; i &lt; 90; i++ ){
+    scale[i] = 0;
+}
+
 
 </string>
           </argument>
@@ -55,14 +59,15 @@
 switch(CurrentView){
     case ViewPlatformer:
         if( Transition ) {
-            var scale = ( PlatformerBattleRatio * t^TransitionExp ) / ( t^TransitionExp + ( TransitionTime * room_speed - t )^TransitionExp );          
-            
-            view_wview[Overworld] = ViewBattleW * scale;
-            view_hview[Overworld] = ViewBattleH * scale;
+            var cEase = EaseInOut(TransitionExpnt, TransitionTime, t);  
         
-            t++;
+            view_wview[Overworld] = ViewBattleW + DeltaPlatformerBattleW * cEase;
+            view_hview[Overworld] = ViewBattleH + DeltaPlatformerBattleH * cEase;
             
             if( view_wview[Overworld] == ViewPlatformerW ) Transition = false;
+            
+            t++;
+            
             
         }
         
@@ -75,14 +80,15 @@ switch(CurrentView){
     break;
     case ViewBattle:
         if( Transition ) {
-            var scale = ( PlatformerBattleRatio * t^TransitionExp ) / ( t^TransitionExp + ( TransitionTime * room_speed - t )^TransitionExp );          
-            
-            view_wview[Overworld] = ViewPlatformerW / scale;
-            view_hview[Overworld] = ViewPlatformerH / scale;
+            cEase = EaseInOut(TransitionExpnt, TransitionTime, t);  
         
+            view_wview[Overworld] = ViewPlatformerW - DeltaPlatformerBattleW * cEase;
+            view_hview[Overworld] = ViewPlatformerH - DeltaPlatformerBattleH * cEase;
+                      
+            if( view_wview[Overworld] == ViewBattleW ) Transition = false;
+            
             t++;
             
-            if( view_wview[Overworld] == ViewBattleW ) Transition = false;
             
         }
         
@@ -113,6 +119,28 @@ switch(CurrentView){
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -131,6 +159,9 @@ switch(CurrentView){
           <argument>
             <kind>1</kind>
             <string>draw_self();
+
+
+
 //d3d_transform_set_translation( prevx-x, prevy-y, 0 );
 </string>
           </argument>

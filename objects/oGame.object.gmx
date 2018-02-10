@@ -88,9 +88,10 @@ with(camera){
     ViewBattleW = 320;
     ViewBattleH = 180;
     
-    PlatformerBattleRatio = ViewPlatformerW/ViewBattleW;
-    TransitionTime = 3;
-    TransitionExp = 2.5;
+    DeltaPlatformerBattleW = ViewPlatformerW - ViewBattleW;
+    DeltaPlatformerBattleH = ViewPlatformerH - ViewBattleH;
+    TransitionTime = .5;                                                //in seconds
+    TransitionExpnt = 2;
     Transition = false;
     t = 0;
 
@@ -237,60 +238,6 @@ if( PlayerReady &amp;&amp; EnemyReady ){
     PlayerReady = false;    
     EnemyReady = false;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Show debug variables GUI
-switch GameMode {
-    case PLATFORMER:
-        CurrentMode = "Plataformer";
-    break;
-    case BATTLE:
-        CurrentMode = "Battle";
-    break;
-}
-
-switch BattleState {
-    case INITIATE:
-        CurrentBState = "Initiating";
-    break;
-    case TURNREST:
-        CurrentBState = "Turn Rest";
-    break;
-    case TURNATTACKP:
-        CurrentBState = "Turn Attack Player";
-    break;
-    case TURNATTACKE:
-        CurrentBState = "Turn Attack Enemy";
-    break;
-    default:
-        CurrentBState = "Noone";
-    break;
-}
-
-
-draw_set_colour(c_white);
-draw_text( 0, 0, "Game mode: " + CurrentMode + "#Battle state: " + CurrentBState );
-
 </string>
           </argument>
         </arguments>

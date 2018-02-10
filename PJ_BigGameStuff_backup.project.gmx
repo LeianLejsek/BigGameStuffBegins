@@ -107,6 +107,7 @@
     <script>scripts\InitiateBattle.gml</script>
     <script>scripts\EndBattle.gml</script>
     <script>scripts\BattleTakePos.gml</script>
+    <script>scripts\EaseInOut.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\oGame</object>
