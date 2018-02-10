@@ -1,7 +1,7 @@
 GameMode = PLATFORMER;
 BattleState = noone;
 with(camera){
-    ChangeView(ViewPlatform);
+    ChangeView(ViewPlatformer);
 }
 
 FirstEnemy.InBattle = false;

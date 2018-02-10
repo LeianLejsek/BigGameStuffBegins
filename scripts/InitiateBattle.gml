@@ -8,7 +8,7 @@ BattleSeparation = 1/3 * camera.ViewBattleW;  //Separation from each other betwe
 BattleRestSideP = sign( oPlayer.x - FirstEnemy.x );
 BattleRestSideE = - BattleRestSideP;
 with(camera){
-    ChangeView(ViewBattle);
+    //ChangeView(ViewBattle);
 }
 with(oPlayer) {
     BattleRestPos = x + BattleRestSideP * BattleSeparation/2;    

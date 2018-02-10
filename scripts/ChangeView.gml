@@ -6,12 +6,12 @@ if( self != oGame.camera ){
 var NextView = argument0;
 
 switch NextView {
-    case ViewPlatform:
+    case ViewPlatformer:
         view_visible[ ViewBattle ] = false;        
-        view_visible[ ViewPlatform ]= true;
+        view_visible[ ViewPlatformer ]= true;
     break;
     case ViewBattle:
-        view_visible[ ViewPlatform ] = false;
+        view_visible[ ViewPlatformer ] = false;
         view_visible[ ViewBattle ] = true;
     break;
     default:

@@ -77,16 +77,17 @@ camera = instance_create(x, y, oCamera);
 view_enabled = true;
 
 with(camera){
-    ViewPlatform = 0;
+    ViewPlatformer = 0;
     ViewBattle = 1;
+    ViewDebug = 2;
     
-    ViewPlatformW = 640;
-    ViewPlatformH = 360;
+    ViewPlatformerW = 640;
+    ViewPlatformerH = 360;
 
-    view_wview[ViewPlatform] = ViewPlatformW;
-    view_hview[ViewPlatform] = ViewPlatformH;
-    view_hborder[ViewPlatform] = ViewPlatformW/2;
-    view_vborder[ViewPlatform] = ViewPlatformH/2;
+    view_wview[ViewPlatformer] = ViewPlatformerW;
+    view_hview[ViewPlatformer] = ViewPlatformerH;
+    view_hborder[ViewPlatformer] = ViewPlatformerW/2;
+    view_vborder[ViewPlatformer] = ViewPlatformerH/2;
     
     ViewBattleW = 270;
     ViewBattleH = 162;
@@ -96,10 +97,12 @@ with(camera){
     view_hborder[ViewBattle] = ViewBattleW/2;
     view_vborder[ViewBattle] = ViewBattleH/2;
     
-    view_object[ViewPlatform] = self;
+    /*
+    view_object[ViewPlatformer] = self;
     view_object[ViewBattle] = self;
+    */
     
-    view_visible[ViewPlatform] = true;
+    view_visible[ViewPlatformer] = true;
 }
 </string>
           </argument>

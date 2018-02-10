@@ -33,8 +33,10 @@
       <sprite>sprites\sPlayerParticle</sprite>
     </sprites>
     <sprites name="Enemy">
-      <sprite>sprites\sEnemyTest1</sprite>
       <sprite>sprites\sEnemyTest</sprite>
+      <sprite>sprites\sEnemyTest1</sprite>
+      <sprite>sprites\sEnemyTest2</sprite>
+      <sprite>sprites\sEnemyHeadTest</sprite>
     </sprites>
     <sprites name="Terrain">
       <sprite>sprites\sBlock16</sprite>
@@ -82,7 +84,6 @@
     <sprite>sprites\sCoin</sprite>
     <sprite>sprites\sCratePoof</sprite>
     <sprite>sprites\sGame</sprite>
-    <sprite>sprites\sEnemyTest2</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg0</background>
@@ -158,8 +159,8 @@
   <rooms name="rooms">
     <room>rooms\rmInitiate</room>
     <rooms name="Test">
-      <room>rooms\rmTest1</room>
       <room>rooms\rmTest</room>
+      <room>rooms\rmTest1</room>
       <room>rooms\rmBattleTest</room>
     </rooms>
   </rooms>
