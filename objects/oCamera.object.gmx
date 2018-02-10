@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>FollowBattleAreaMinVel = .5;
-FollowBattleAreaMinVelOffset = 3;
+
 
 </string>
           </argument>
@@ -52,33 +52,55 @@ FollowBattleAreaMinVelOffset = 3;
             <kind>1</kind>
             <string>        prevx = x;
         prevy = y;
-switch(oGame.GameMode){
-    case oGame.PLATFORMER:
+switch(CurrentView){
+    case ViewPlatformer:
+        if( Transition ) {
+            var scale = ( PlatformerBattleRatio * t^TransitionExp ) / ( t^TransitionExp + ( TransitionTime * room_speed - t )^TransitionExp );          
+            
+            view_wview[Overworld] = ViewBattleW * scale;
+            view_hview[Overworld] = ViewBattleH * scale;
+        
+            t++;
+            
+            if( view_wview[Overworld] == ViewPlatformerW ) Transition = false;
+            
+        }
         
         x = oPlayer.x;
         y = oPlayer.y;
-        view_xview[ViewPlatformer] = x - ViewPlatformerW/2;
-        view_yview[ViewPlatformer] = y - ViewPlatformerH/2;        
+        
+        view_xview[Overworld] = x - view_wview[Overworld]/2;
+        view_yview[Overworld] = y - view_hview[Overworld]/2;        
+        
     break;
-    case oGame.BATTLE:
+    case ViewBattle:
+        if( Transition ) {
+            var scale = ( PlatformerBattleRatio * t^TransitionExp ) / ( t^TransitionExp + ( TransitionTime * room_speed - t )^TransitionExp );          
+            
+            view_wview[Overworld] = ViewPlatformerW / scale;
+            view_hview[Overworld] = ViewPlatformerH / scale;
+        
+            t++;
+            
+            if( view_wview[Overworld] == ViewBattleW ) Transition = false;
+            
+        }
+        
         var BattleAreCenterx, BattleAreaCentery, FollowBattleAreaVel, FollowBattleAreaVelOffset, DistanceToCenter;
 
         BattleAreaCenterx = oGame.BattleAreaL + oGame.BattleAreaW/2;
         BattleAreaCentery = oGame.BattleAreaT + oGame.BattleAreaH/2;
         DistanceToCenter = distance_to_point( BattleAreaCenterx, BattleAreaCentery );
         
-        FollowBattleAreaVelOffset = ( 9 * ( 2*DistanceToCenter + 9 ) ^ (7/2) ) / (3.2*10^4) ;       
+        FollowBattleAreaVelOffset = ( 9 * ( 2*DistanceToCenter + 9 ) ^ (7/2) ) / (3.2*10^4) ;     //Finely tuned function. DO NOT TOUCH UNLESS RESOLUTION CHANGE.  
         
         FollowBattleAreaVel = FollowBattleAreaMinVel + FollowBattleAreaVelOffset;
         
         x = Approach(x, BattleAreaCenterx, sin(pi/4) * FollowBattleAreaVel);
         y = Approach(y, BattleAreaCentery, sin(pi/4) * FollowBattleAreaVel);
-/*    
-        view_xview[ViewBattle] = x - ViewBattleW/2;
-        view_yview[ViewBattle] = y - ViewBattleH/2;
-*/
-        view_xview[ViewPlatformer] = x - ViewPlatformerW/2;
-        view_yview[ViewPlatformer] = y - ViewPlatformerH/2;        
+    
+        view_xview[Overworld] = x - view_wview[Overworld]/2;
+        view_yview[Overworld] = y - view_hview[Overworld]/2;
         
     break;
     default:
