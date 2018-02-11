@@ -28,12 +28,14 @@
             <string>switch(CurrentView){
     case ViewPlatformer:
         if( Transition ) {
-            var cEase = EaseInOut(TransitionExpnt, TransitionTime, t);  
-        
+            var cEase = EaseInOut(TransitionExpnt-.5, 7, t); //That seven is the time it takes the camera to go back to the player, so it doesn't look too weird when it readjusts.  
+            
+            //var cEase = t/7;
+            
             view_wview[Overworld] = ViewBattleW + DeltaPlatformerBattleW * cEase;
             view_hview[Overworld] = ViewBattleH + DeltaPlatformerBattleH * cEase;
             
-            if( view_wview[Overworld] == ViewPlatformerW ) Transition = false;
+            if( view_wview[Overworld] &gt;= ViewPlatformerW ) Transition = false;
             
             t++;
             
@@ -57,7 +59,7 @@
     break;
     case ViewBattle:
         if( Transition ) {
-            cEase = EaseInOut(TransitionExpnt, TransitionTime, t);  
+            cEase = EaseInOut(TransitionExpnt, TransitionTime*30, t);  
         
             view_wview[Overworld] = ViewPlatformerW - DeltaPlatformerBattleW * cEase;
             view_hview[Overworld] = ViewPlatformerH - DeltaPlatformerBattleH * cEase;
@@ -110,7 +112,10 @@ view_yview[Overworld] = y - view_hview[Overworld]/2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>
+
+
+</string>
           </argument>
         </arguments>
       </action>

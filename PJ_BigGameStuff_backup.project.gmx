@@ -161,8 +161,8 @@
   <rooms name="rooms">
     <room>rooms\rmInitiate</room>
     <rooms name="Test">
-      <room>rooms\rmTest</room>
       <room>rooms\rmTest1</room>
+      <room>rooms\rmTest</room>
       <room>rooms\rmBattleTest</room>
     </rooms>
   </rooms>
