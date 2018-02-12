@@ -344,9 +344,8 @@ if (instance_exists(oTouchCompatible)) {
           <argument>
             <kind>1</kind>
             <string>///Show debug options
-
+/*
 if( GameMode == BATTLE &amp;&amp; BattleAreaR != noone ){
-    draw_set_colour(c_yellow);
     draw_rectangle_colour( BattleAreaR, BattleAreaT, BattleAreaL, BattleAreaB, c_red, c_red, c_green, c_blue ,1 );
 }
 </string>

@@ -772,9 +772,10 @@ else
           <argument>
             <kind>1</kind>
             <string>///Debug stuff
+/*
 if ( oGame.BattleState == oGame.INITIATE ) {
     var cx = x; 
-    var Drawx = x + BattleRestSide * (abs(sprite_width)/2 + 5);
+    var Drawx = x + BattleRestSide * (abs(sprite_width)/2);
     draw_sprite(sprite_index, 0, Drawx, y);
 }
 </string>

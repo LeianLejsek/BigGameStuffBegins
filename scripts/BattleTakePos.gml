@@ -5,7 +5,7 @@ if ( oGame.BattleState == oGame.INITIATE ) {
     DisConstant = (2*pi) / (270 * 2/3);
     MinVelocity = 1.5;
     
-    GroundColx = x + BattleRestSide * (abs(sprite_width)/2 );
+    GroundColx = x + BattleRestSide * abs(sprite_width/2);
     NextOnGround = place_meeting( GroundColx, y + 1, oParSolid) || place_meeting( GroundColx, y + 1, oParJumpThru);
     
     WallColl = cLeft || cRight;
